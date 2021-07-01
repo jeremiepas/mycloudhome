@@ -26,14 +26,6 @@ def get(section, key):
     config.read(os.path.join(home, 'mycloudhome.ini'))
     return config[section][key]
 
-# def save(section, key, value):
-#     config = configparser.ConfigParser()
-#     config.read(os.path.join(home, 'mycloudhome.ini'))
-#     config['section'][key] = value
-
-#     with open(os.path.join(home, 'mycloudhome.ini'), 'w') as configfile:
-#         config.write(configfile)
-
 
 def save_token(token):
     config = configparser.ConfigParser()
@@ -58,7 +50,6 @@ def save_profiles(devices, user):
         profile_name = device['deviceId']
         config[profile_name] = device['network']
         config[profile_name]['deviceId'] = device['deviceId']
-        config[profile_name]['serialNumber'] = device['serialNumber']
         config[profile_name]['name'] = device['name']
         config[profile_name]['email'] = user['email']
         config[profile_name]['name'] = user['name']
